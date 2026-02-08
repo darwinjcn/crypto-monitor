@@ -1,0 +1,247 @@
+/* RESET TOTAL */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #0b0e11;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dashboard-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #0b0e11 0%, #1a1d23 100%);
+}
+
+.dashboard-header {
+  background: linear-gradient(135deg, #1e2329 0%, #2b3139 100%);
+  border-bottom: 1px solid #2b3139;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      #fcd535 50%, 
+      transparent 100%);
+    opacity: 0.5;
+  }
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(252, 213, 53, 0.1);
+  border: 1px solid rgba(252, 213, 53, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(252, 213, 53, 0.2);
+    border-color: #fcd535;
+    transform: translateY(-2px);
+  }
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 8px rgba(252, 213, 53, 0.6));
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fcd535;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(252, 213, 53, 0.5);
+}
+
+.header-content {
+  flex: 1;
+  
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #eaecef;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    margin: 5px 0 0 0;
+    color: #848e9c;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+/* Sección del botón de Binance */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.binance-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #f0b90b 0%, #f8d12f 100%);
+  border: 2px solid #f0b90b;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(240, 185, 11, 0.3);
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(240, 185, 11, 0.5);
+    border-color: #fcd535;
+    background: linear-gradient(135deg, #fcd535 0%, #f0b90b 100%);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+.binance-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.binance-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.binance-label {
+  font-size: 0.7rem;
+  color: #1e2329;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.binance-name {
+  font-size: 1rem;
+  color: #1e2329;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.dashboard-main {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px 40px;
+  
+  /* Custom scrollbar */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #1e2329;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #3d4450;
+    border-radius: 4px;
+    
+    &:hover {
+      background: #4a5160;
+    }
+  }
+}
+
+.dashboard-footer {
+  background: #1e2329;
+  border-top: 1px solid #2b3139;
+  padding: 20px 40px;
+  text-align: center;
+  color: #848e9c;
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+  
+  span {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(252, 213, 53, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(252, 213, 53, 0.1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .binance-text {
+    display: none;
+  }
+  
+  .binance-button {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  
+  .header-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .dashboard-main {
+    padding: 20px 15px;
+  }
+  
+  .dashboard-footer {
+    padding: 15px 20px;
+  }
+}

@@ -1,1 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0b0e11;
+  color: #eaecef;
+}
+
+/* Flash animations for price changes */
+@keyframes flash-green {
+  0% {
+    background-color: rgba(14, 203, 129, 0);
+  }
+  50% {
+    background-color: rgba(14, 203, 129, 0.3);
+  }
+  100% {
+    background-color: rgba(14, 203, 129, 0);
+  }
+}
+
+@keyframes flash-red {
+  0% {
+    background-color: rgba(246, 70, 93, 0);
+  }
+  50% {
+    background-color: rgba(246, 70, 93, 0.3);
+  }
+  100% {
+    background-color: rgba(246, 70, 93, 0);
+  }
+}
+
+.flash-green {
+  animation: flash-green 0.3s ease-in-out;
+}
+
+.flash-red {
+  animation: flash-red 0.3s ease-in-out;
+}
+
+/* Custom scrollbar for all elements */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e2329;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3d4450;
+  border-radius: 4px;
+  
+  &:hover {
+    background: #4a5160;
+  }
+}
+
+/* Selection color */
+::selection {
+  background: rgba(252, 213, 53, 0.3);
+  color: #eaecef;
+}
+
+/* Focus styles */
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid rgba(252, 213, 53, 0.5);
+  outline-offset: 2px;
+}
+
+/* Utility classes */
+.text-success {
+  color: #0ecb81;
+}
+
+.text-danger {
+  color: #f6465d;
+}
+
+.text-muted {
+  color: #848e9c;
+}
+
+/* Loading spinner (if needed) */
+.spinner {
+  border: 3px solid rgba(252, 213, 53, 0.1);
+  border-top: 3px solid #fcd535;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

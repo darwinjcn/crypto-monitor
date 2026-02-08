@@ -1,0 +1,53 @@
+<div class="dashboard-content">
+  
+  <!-- Header con métricas generales -->
+  <div class="metrics-bar">
+    <div class="metric-card">
+      <div class="metric-icon">📈</div>
+      <div class="metric-info">
+        <span class="metric-label">Capitalización Total del Mercado (Est)</span>
+        <span class="metric-value">{{ totalMarketCap() | currency:'USD':'symbol':'1.2-2' }}</span>
+        <span class="metric-change positive">↑ 2.4%</span>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon">🔄</div>
+      <div class="metric-info">
+        <span class="metric-label">Pares Activos</span>
+        <span class="metric-value">{{ activePairs() }}</span>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon">⚡</div>
+      <div class="metric-info">
+        <span class="metric-label">Volatilidad Promedio</span>
+        <span class="metric-value">{{ averageVolatility() | number:'1.4-4' }}</span>
+        <span class="metric-status high-risk">↑ Alto Riesgo</span>
+      </div>
+    </div>
+
+    <div class="live-indicator">
+      <span class="pulse-dot"></span>
+      <span class="live-text">Transmisión en Vivo Activa</span>
+    </div>
+  </div>
+
+  <!-- Sección de tickers en vivo -->
+  <div class="section-header">
+    <h2>
+      <span class="radio-icon">📡</span>
+      Cotizaciones en Vivo
+    </h2>
+  </div>
+
+  <!-- Grid de tarjetas de criptomonedas -->
+  <div class="crypto-grid">
+    <app-crypto-card 
+      *ngFor="let crypto of cryptos(); trackBy: trackByCryptoId"
+      [crypto]="crypto">
+    </app-crypto-card>
+  </div>
+
+</div>

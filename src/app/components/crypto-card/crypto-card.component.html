@@ -1,0 +1,78 @@
+<div class="crypto-card" 
+     [appHighlightChange]="crypto().changePercent"
+     [class.alert-triggered]="isAlertTriggered()">
+  
+  <!-- Header con nombre y símbolo -->
+  <div class="card-header">
+    <div class="crypto-info">
+      <span class="crypto-symbol">{{ crypto().id | uppercase }}</span>
+      <span class="crypto-name">{{ crypto().name }}</span>
+    </div>
+    <div class="change-badge" 
+         [class.positive]="crypto().changePercent > 0"
+         [class.negative]="crypto().changePercent < 0">
+      {{ crypto().changePercent > 0 ? '+' : '' }}{{ crypto().changePercent | number:'1.2-2' }}%
+    </div>
+  </div>
+
+  <!-- Precio actual -->
+  <div class="price-section">
+    <div class="current-price">{{ crypto().price | currency:'USD':'symbol':'1.2-2' }}</div>
+  </div>
+
+  <!-- Gráfico de línea -->
+  <div class="chart-container" *ngIf="priceHistory().length > 1">
+    <svg class="price-chart" viewBox="0 0 200 60" preserveAspectRatio="none">
+      <path 
+        [attr.d]="chartPath()"
+        [class.chart-positive]="crypto().changePercent > 0"
+        [class.chart-negative]="crypto().changePercent < 0"
+        fill="none"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+
+  <!-- Estadísticas (SMA y Volatilidad) -->
+  <div class="stats-section" *ngIf="stats()">
+    <div class="stat-item">
+      <span class="stat-label">SMA (20)</span>
+      <span class="stat-value">{{ stats()!.movingAverage | currency:'USD':'symbol':'1.2-2' }}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">VOLATILITY</span>
+      <span class="stat-value">{{ stats()!.volatility | number:'1.4-4' }}</span>
+    </div>
+  </div>
+
+  <!-- Sistema de Alertas -->
+  <div class="alert-section">
+    <button class="alert-toggle" 
+            (click)="toggleAlert()"
+            [class.active]="alertEnabled()">
+      {{ alertEnabled() ? '🔔 Alert ON' : '🔕 Alert OFF' }}
+    </button>
+
+    <div class="alert-config" *ngIf="alertEnabled()">
+      <div class="alert-controls">
+        <select (change)="setAlertType($any($event.target).value)" 
+                [value]="alertType()"
+                class="alert-type">
+          <option value="above">Above</option>
+          <option value="below">Below</option>
+        </select>
+        <input 
+          type="number" 
+          [value]="alertThreshold()"
+          (input)="updateAlertThreshold($any($event.target).value)"
+          placeholder="Threshold"
+          step="0.01"
+          class="alert-input"
+        />
+      </div>
+      <div class="alert-status" *ngIf="isAlertTriggered()">
+        ⚠️ Alert Triggered!
+      </div>
+    </div>
+  </div>
+</div>
