@@ -7,7 +7,7 @@
 
 Aplicación web profesional para monitorear criptomonedas en tiempo real con análisis estadístico avanzado, sistema de alertas personalizadas y visualizaciones interactivas.
 
-![Dashboard Preview](https://via.placeholder.com/800x400/0b0e11/fcd535?text=Crypto+Monitor+Dashboard)
+![Dashboard Preview](./docs/images/dashboard-preview.png)
 
 ---
 
