@@ -15,7 +15,7 @@ Aplicación web profesional para monitorear criptomonedas en tiempo real con an�
 
 ### ✅ Requisitos Funcionales
 - **Actualización en Tiempo Real**: Precios actualizados cada 200ms
-- **5 Criptomonedas Monitoreadas**: BTC, ETH, SOL, ADA, DOT
+- **10 Criptomonedas Monitoreadas**: BTC, ETH, SOL, ADA, DOT, BNB, XRP, LTC, DOGE, AVAX
 - **Sistema de Alertas Dinámicas**: Configurable por el usuario (umbral y tipo)
 - **Gráficos SVG Interactivos**: Historial de precios de los últimos 20 valores
 - **Análisis Estadístico**: SMA (Simple Moving Average) y Volatilidad
@@ -102,11 +102,16 @@ Los precios están basados en datos reales de **Binance** (Febrero 2026):
 
 | Criptomoneda | Precio Inicial | Símbolo |
 |--------------|----------------|---------|
-| Bitcoin      | $76,045.93     | BTC     |
-| Ethereum     | $2,239.52      | ETH     |
-| Solana       | $96.30         | SOL     |
-| Cardano      | $0.30          | ADA     |
-| Polkadot     | $1.49          | DOT     |
+| Bitcoin      | $71,394.52     | BTC     |
+| Ethereum     | $2,223.10      | ETH     |
+| Solana       | $88.44         | SOL     |
+| Cardano      | $0.27          | ADA     |
+| Polkadot     | $1.37          | DOT     |
+| Binance Coin | $642.29        | BNB     |
+| Ripple       | $1.48          | XRP     |
+| Litecoin     | $55.45         | LTC     |
+| Dogecoin     | $0.09          | DOGE    |
+| Avalanche    | $9.25          | AVAX    |
 
 *Fuente de datos: [Binance.com](https://www.binance.com)*
 
